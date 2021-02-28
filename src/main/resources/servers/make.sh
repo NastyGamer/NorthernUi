@@ -15,4 +15,3 @@ source env/bin/activate
 echo "Creating serverlist"
 python3 make_serverlist.py
 echo "Done!"
-source env/bin/deactivate
