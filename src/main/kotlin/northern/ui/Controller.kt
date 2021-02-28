@@ -38,7 +38,12 @@ class Controller {
         countryList.selectionModel.selectedItemProperty().addListener { _, _, new -> VpnController.connect(new) }
         disconnectButton.onMouseClicked = EventHandler { VpnController.disconnect() }
         newServerButton.onMouseClicked =
-            EventHandler { countryList.selectionModel.selectedItem?.let { VpnController.connect(it) } }
+            EventHandler {
+                countryList.selectionModel.selectedItem?.let {
+                    if (VpnController.isConnected())
+                        VpnController.connect(it)
+                }
+            }
         GlobalScope.launch {
             while (true) {
                 statusCircle.fill = if(VpnController.isConnected()) Color.GREEN else Color.RED

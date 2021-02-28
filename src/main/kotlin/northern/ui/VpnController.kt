@@ -31,7 +31,6 @@ object VpnController {
 
     fun connect(country: String) {
         val server = servers.servers[country]!!.random()
-        println(server.toString())
         FileUtils.copyURLToFile(URI(server.link).toURL(), File("/tmp/${server.name}"))
         showNotification("Connecting to ${server.name}")
         Runtime.getRuntime().exec(arrayOf("openvpn3", "session-start", "--config", "/tmp/${server.name}"))
