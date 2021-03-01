@@ -3,15 +3,11 @@ package northern.ui
 import com.eclipsesource.json.Json
 import org.apache.commons.io.FileUtils
 import org.apache.commons.io.IOUtils
-import java.io.BufferedReader
 import java.io.File
-import java.io.FileReader
 import java.io.InputStreamReader
 import java.net.URI
 import java.nio.charset.StandardCharsets
 import java.time.LocalDate
-import kotlin.io.path.ExperimentalPathApi
-import kotlin.io.path.Path
 
 object VpnController {
 
