@@ -11,7 +11,9 @@ import javafx.scene.shape.Circle
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.io.path.ExperimentalPathApi
 
+@ExperimentalPathApi
 class Controller {
 
     @FXML

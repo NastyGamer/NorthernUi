@@ -8,10 +8,12 @@ import javafx.scene.control.Button
 import javafx.scene.layout.HBox
 import javafx.stage.Modality
 import javafx.stage.Stage
+import kotlin.io.path.ExperimentalPathApi
 
 
 object Notification {
 
+    @ExperimentalPathApi
     fun showNotification(scene: Scene) {
         val stage = Stage()
         val root = FXMLLoader.load<Parent>(this.javaClass.classLoader.getResource("Notification.fxml"))

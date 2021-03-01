@@ -6,16 +6,19 @@ import org.apache.commons.io.IOUtils
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
+import java.io.InputStreamReader
 import java.net.URI
 import java.nio.charset.StandardCharsets
 import java.time.LocalDate
+import kotlin.io.path.ExperimentalPathApi
+import kotlin.io.path.Path
 
 object VpnController {
 
     val servers: Servers
 
     init {
-        val json = Json.parse(BufferedReader(FileReader(this.javaClass.classLoader.getResource("servers.json")!!.file)))
+        val json = Json.parse(InputStreamReader(this.javaClass.classLoader.getResourceAsStream("servers.json")!!))
         servers = Servers(
             json.asObject().get("creationDate").asString().split(".")
                 .let { LocalDate.of(it[2].toInt(), it[1].toInt(), it[0].toInt()) },
